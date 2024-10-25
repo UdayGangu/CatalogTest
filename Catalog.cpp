@@ -2,10 +2,8 @@
 #include <map>
 #include <cmath>
 #include <string>
-
 using namespace std;
 
-// Function to convert a string value from any base to decimal
 long long convertToDecimal(const string& value, int base) {
     long long result = 0;
     for (char digit : value) {
@@ -14,7 +12,7 @@ long long convertToDecimal(const string& value, int base) {
     return result;
 }
 
-// Function to perform Lagrange Interpolation and find the constant term 'c'
+
 long long lagrangeInterpolation(const map<int, long long>& points, int k) {
     long long constantTerm = 0;
     for (auto& p1 : points) {
@@ -55,10 +53,10 @@ int main() {
         rawPoints[x] = {base, value};
     }
 
-    // Map to store (x, y) pairs in decimal
+    
     map<int, long long> points;
 
-    // Decode each value and store as (x, y) pairs
+    
     for (auto& point : rawPoints) {
         int x = point.first;
         int base = point.second.first;
@@ -67,10 +65,10 @@ int main() {
         points[x] = y;
     }
 
-    // Calculate the constant term using Lagrange Interpolation
+    
     long long constantTerm = lagrangeInterpolation(points, k);
 
-    // Output the result
+    
     cout << "The constant term (secret) is: " << constantTerm << endl;
 
     return 0;
